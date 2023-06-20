@@ -1,2 +1,1 @@
-# user-registration-with-manual-SHA1-password-hashing
-user registration with manual SHA1 password hashing assignment
+User registration with manual SHA1 password hashing application with Django 
