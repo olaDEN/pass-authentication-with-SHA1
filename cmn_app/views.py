@@ -8,7 +8,6 @@ import hashlib
 def rotate_left(value, n):
     return ((value << n) | (value >> (32 - n))) & 0xFFFFFFFF
 
-
 def SHA1(password):
 
     '''Similar implementation to SHA1'''
@@ -17,7 +16,6 @@ def SHA1(password):
     # Step 1: Padding
     padd_pass = password.encode() # encodes the password string into bytes.
     padd_len = (56 - (len(padd_pass) + 1) % 64) % 64 # ensures the resulting length is a multiple of 64
-    
     # appending a b'\x80' byte (binary 10000000) followed by zero bytes (b'\x00') to achieve a length that is a multiple of 64 bytes.
     padd_pass += b'\x80' + b'\x00' * padd_len 
 
@@ -41,7 +39,7 @@ def SHA1(password):
         block = padd_pass[i:i+64]
 
         # loop initializes the message schedule (w) with the first 16 words from the current block. 
-        # Each word is extracted from the block by unpacking 4 bytes using 
+        # Each word is extracted from the block by unpacking 4 bytes 
         w = [0] * 80
         for j in range(16):
             w[j] = struct.unpack('>I', block[j*4:j*4+4])[0] # Pack a single unsigned integer (32 bits) into a binary representation
